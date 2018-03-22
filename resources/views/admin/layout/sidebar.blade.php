@@ -34,7 +34,7 @@
             </li>
             @endcan
 
-            @can("notice ")
+            @can("notice")
             <li class="active treeview">
                 <a href="/admin/notices">
                     <i class="fa fa-dashboard"></i> <span>通知管理</span>

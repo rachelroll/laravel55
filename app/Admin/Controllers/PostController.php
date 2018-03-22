@@ -3,12 +3,14 @@
 namespace App\Admin\Controllers;
 
 use App\Post;
+use DebugBar\DebugBar;
 
 class PostController extends Controller
 {
     //首页
     public function index()
     {
+        Debugbar::error('Error!');
         $posts = Post::withoutGlobalScope('available')->where('status', 0)->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.post.index', compact('posts'));
     }

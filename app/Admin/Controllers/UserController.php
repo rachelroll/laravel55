@@ -11,7 +11,6 @@ class UserController extends Controller
     //管理人员列表
     public function index()
     {
-        dd(234);
         $users = AdminUser::paginate(10);
         return view('admin.user.index', compact('users'));
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
@@ -13,7 +14,10 @@ class PostController extends Controller
     //列表
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->withCount(['comments', 'zans'])->paginate(6);
+        $posts = Post::orderBy('created_at', 'desc')->withCount(['comments', 'zans'])->with('user')->paginate(6);
+
+        //$posts->load('user');
+
         return view("post/index", compact('posts'));
     }
 
